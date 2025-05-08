@@ -1,6 +1,22 @@
+# render.yaml
+
+# Enable automatic preview environments on pull requests
+previews:
+  generation: automatic
+
 services:
   - type: web
-    plan: standard
+    name: n8n-custom
+    # Use your forked repo and branch
+    repo: https://github.com/jayentity303/n8n-
+    branch: master
+    # Build & start commands for your fork
+    buildCommand: yarn install && yarn build
+    startCommand: yarn start
+    plan: Free           # 2 GB RAM; upgrade if needed
+
+
 databases:
   - name: n8n-db
-    plan: basic-256mb
+    plan: basic-256mb      # smallest paid Postgres plan
+    databaseName: n8n      # explicit DB name
