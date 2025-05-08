@@ -1,1 +1,6 @@
-
+services:
+  - type: web
+    plan: standard
+databases:
+  - name: n8n-db
+    plan: basic-256mb
